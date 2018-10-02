@@ -1,0 +1,67 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+apply plugin: 'com.akaita.android.easylauncher'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'xxxxxx'
+            keyPassword 'xxxxxxx'
+            storeFile file('C:/ProjetoAndroid/Projeto/keystore/keystore')
+            storePassword 'xxxxxx'
+        }
+    }
+
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "br.com.carlos.projeto"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.config
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+    }
+}
+
+dependencies {
+
+    //Externas
+    implementation 'com.flurry.android:analytics:11.1.1@aar'
+    implementation 'com.bartoszlipinski:recyclerviewheader2:2.0.1'
+    implementation 'com.akhgupta:android-easylocation:1.0.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.afollestad.material-dialogs:commons:0.9.6.0'
+    implementation 'com.wdullaer:materialdatetimepicker:3.6.4'
+    implementation 'com.github.medyo:android-about-page:1.2.2'
+    implementation 'com.github.hotchemi:android-rate:1.0.1'
+    implementation 'br.com.concrete:canarinho:2.0.0'
+
+    implementation 'io.realm:android-adapters:2.1.1'
+
+    //Android
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:mediarouter-v7:27.1.1'
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    //Google
+    implementation 'com.google.android.gms:play-services-analytics:16.0.3'
+    implementation 'com.google.android.gms:play-services-location:15.0.1'
+
+    // Libs
+    implementation files('libs/acra-4.5.0.jar')
+    implementation files('libs/splunk-mint-4.3.0.jar')
+
+}

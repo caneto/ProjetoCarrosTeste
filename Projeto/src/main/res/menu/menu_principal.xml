@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/meus_dependentes"
+            android:icon="@drawable/ic_library_books_black_24dp"
+            android:title="Pedidos"
+            app:showAsAction="never"
+            android:visible="false"
+            />
+
+
+    </group>
+
+    <item android:title="Opções">
+        <menu>
+            <item
+                android:id="@+id/nav_indique"
+                android:title="Indique para um amigo"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/nav_sobre"
+                android:title="Sobre"
+                app:showAsAction="never"
+                />
+            <item
+                android:id="@+id/nav_qualificar"
+                android:title="Qualificar"
+                app:showAsAction="never"/>
+            <item
+                android:id="@+id/nav_versao"
+                android:title="Versão"
+                app:showAsAction="never"/>
+
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="100"
+        android:title="Sair"
+        app:showAsAction="never" />
+
+</menu>

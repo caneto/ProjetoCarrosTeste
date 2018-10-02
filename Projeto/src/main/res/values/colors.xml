@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#CBE3EE</color>
+    <color name="colorAccent">#0d9770</color>
+    <color name="lessAccent">#75d5de</color>
+    <color name="primaryText">#212121</color>
+
+    <color name="black_overlay">#66000000</color>
+
+    <color name="azul_splash_screen">#2477dc</color>
+    <color name="azul_login">#bce5fb</color>
+    <color name="botao_entrar">#b0d199</color>
+    <color name="botao_facebook">#009fe3</color>
+    <color name="botao_criar_conta">#f3d090</color>
+
+    <color name="half_black">#808080</color>
+    <color name="black_semi_transparent">#B2000000</color>
+    <color name="white_pressed">#f1f1f1</color>
+
+    <color name="base_minha_saude">#82d0f6</color>
+    <color name="base_consulta">#009fe3</color>
+    <color name="base_exame">#82c06b</color>
+    <color name="base_farmacia">#e03a3e</color>
+    <color name="base_cirurgias">#fbb82b</color>
+    <color name="base_outros">#934090</color>
+    <color name="base_info">#d3edfc</color>
+
+    <color name="cor_texto">#009fe3</color>
+    <color name="cor_texto_escuro">#01467f</color>
+    <color name="Preto">#000000</color>
+    <color name="branco">#ffffff</color>
+    <color name="white">#ffffff</color>
+
+    <color name="corBotaoFoto">#2FC21E</color>
+    <color name="corPar">#5C5F63</color>
+    <color name="corImpar">#44966F</color>
+
+</resources>

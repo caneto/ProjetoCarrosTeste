@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">Veiculos</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="atencao_">Atenção</string>
+    <string name="verifique_conexao_reinicie_app">Verifique sua conexão com a internet e reinicie o aplicativo.</string>
+
+    <string name="crash_toast_text">Oooops! Aconteceu um erro, mas um relatório foi gerado, envie para mim, para que se possa solucionar o problema!</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="ok">OK</string>
+    <string name="settings">Settings</string>
+
+    <string name="empty_senha">Digite uma senha válida</string>
+    <string name="senha_8digitos">Mínimo 8 digitos, máximo 16</string>
+    <string name="empty_password_2">Re-digite a senha</string>
+    <string name="senha_nao_igual">Segunda senha não conscide com a primeira</string>
+
+    <string name="email_invalido">Digite um email ou celular válido.</string>
+    <string name="incorrect_email">Digite um e-mail ou celular válido</string>
+    <string name="empty_email">Digite um email ou celular</string>
+
+
+    //Location (GPS)
+    <string name="request_updates">Request updates</string>
+    <string name="remove_updates">Remove updates</string>
+    <string name="unknown_location">Unknown location</string>
+    <string name="permission_rationale">Location permission is needed for core functionality</string>
+    <string name="permission_denied_explanation">Permission was denied, but is needed for core functionality.</string>
+    <string name="batched_location_updates">Batched location updates</string>
+
+    //Sistema
+    <string name="bem_vindo">Bem-Vindo</string>
+    <string name="seu_email_ou_celular">Seu Email ou Celular!</string>
+    <string name="sua_senha">Sua Senha</string>
+    <string name="esqueceu_sua_senha">Esqueceu sua senha?</string>
+    <string name="entrar">Entrar</string>
+
+    <plurals name="num_locations_reported">
+        <item quantity="zero">No location reported</item>
+        <item quantity="one">One location reported</item>
+        <item quantity="other">%d locations reported</item>
+    </plurals>
+
+    <string-array name="cor">
+        <item></item>
+        <item>Branco</item>
+        <item>Azul</item>
+        <item>Preto</item>
+        <item>Verde</item>
+        <item>Vermelho</item>
+        <item>Prata</item>
+        <item>Amarelo</item>
+    </string-array>
+
+</resources>
