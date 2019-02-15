@@ -3,11 +3,13 @@ package br.com.carlos.projeto.activity;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.text.TextWatcher;
 import android.view.View;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.AppCompatSpinner;
 import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -17,6 +19,7 @@ import br.com.carlos.projeto.db.models.Carro;
 import br.com.carlos.projeto.db.models.CarroDao;
 import br.com.carlos.projeto.BaseActivity;
 import br.com.carlos.projeto.R;
+import br.com.carlos.projeto.utils.PlateTextWatcher;
 import br.com.carlos.projeto.utils.SystemUtils;
 
 public class ActCadastro extends BaseActivity {
@@ -25,7 +28,10 @@ public class ActCadastro extends BaseActivity {
     private TextInputLayout tiModelo,tiMarca,tiAno,tiPlaca;
     private AppCompatSpinner sp_cor;
     private AppCompatButton tv_salvar;
+    private AutoCompleteTextView mPlaca;
     private TimePickerDialog dpd;
+    private TextWatcher plateWatcher;
+
 
     private Carro carro;
     private CarroDao carroDao;
@@ -76,6 +82,7 @@ public class ActCadastro extends BaseActivity {
         tiModelo = findViewById(R.id.ti_modelo);
         tiPlaca = findViewById(R.id.ti_placa);
         tiAno = findViewById(R.id.ti_ano);
+        mPlaca = findViewById(R.id.placa);
 
     }
 
@@ -101,6 +108,10 @@ public class ActCadastro extends BaseActivity {
                 carroCadastra();
             }
         });
+
+       plateWatcher = new PlateTextWatcher(mPlaca, this, false);
+       mPlaca.requestFocus();
+       mPlaca.addTextChangedListener(plateWatcher);
     }
 
 
@@ -109,7 +120,7 @@ public class ActCadastro extends BaseActivity {
         if(valida_campos()) {
             String ti_marca = tiMarca.getEditText().getText().toString();
             String ti_modelo = tiModelo.getEditText().getText().toString();
-            String ti_placa = tiPlaca.getEditText().getText().toString();
+            String ti_placa = mPlaca.getText().toString();
             String ti_ano = tiAno.getEditText().getText().toString();
 
             carro = new Carro();
@@ -147,7 +158,7 @@ public class ActCadastro extends BaseActivity {
 
         String ti_marca = tiMarca.getEditText().getText().toString();
         String ti_modelo = tiModelo.getEditText().getText().toString();
-        String ti_placa = tiPlaca.getEditText().getText().toString();
+        String ti_placa = mPlaca.getText().toString();
         String ti_ano = tiAno.getEditText().getText().toString();
 
         if (ti_marca.isEmpty()) {

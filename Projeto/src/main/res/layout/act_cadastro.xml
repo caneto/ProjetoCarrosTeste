@@ -14,7 +14,7 @@
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/tv_ninha_saude"
+            android:id="@+id/tv_informacoes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -111,15 +111,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:hint="Placa">
+                    android:hint="Placa do Veiculo">
 
-                    <android.support.design.widget.TextInputEditText
-                        android:layout_width="match_parent"
+                    <AutoCompleteTextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:inputType="text"
-                        android:maxLength="10"
-                        android:maxWidth="400dp"
-                        android:textColorHint="@color/colorPrimary"/>
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:hint="Placa do Veiculo"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:maxLength="7"
+                        android:maxLines="1"
+                        android:completionThreshold="1"
+                        android:ems="7"
+                        android:lines="1"
+                        android:inputType="textCapCharacters"
+                        android:id="@+id/placa" />
 
                 </android.support.design.widget.TextInputLayout>
 
