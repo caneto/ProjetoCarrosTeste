@@ -1,7 +1,5 @@
 # Teste de Desenvolvimento Criando um CRUD (Projeto Carros)
 
-Tecnologias envolvidas no projeto.
-
 ﻿Tecnologias envolvidas no projeto.
 
 Android Studio 3.3.0
@@ -20,5 +18,5 @@ Plugins
 	
 Para se Logar, use qualquer email (não esta vinculado a nada, nesta versão) e a senha padrão 123456
 	
-- Fiz o app, +- completo, acredito que não falte nada,apenas poderia ter mascara na Placa etc. mais não tive muito tempo.
+- Fiz o app, +- completo, acredito que não falte nada.
 
