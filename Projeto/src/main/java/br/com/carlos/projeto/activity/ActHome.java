@@ -106,7 +106,7 @@ public class ActHome extends BaseActivity {
                 TextView placamodelo = view.findViewById(R.id.tv_placa);
                 String placa_modelo = placamodelo.getText().toString();
 
-                Intent intcap = new Intent(ActHome.this,ActCadastroEditar.class);
+                Intent intcap = new Intent(ActHome.this,ActCadastro.class);
                 intcap.putExtra("placa", placa_modelo);
                 startActivity(intcap);
 

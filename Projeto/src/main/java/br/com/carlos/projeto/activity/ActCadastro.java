@@ -1,5 +1,6 @@
 package br.com.carlos.projeto.activity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
@@ -36,7 +37,9 @@ public class ActCadastro extends BaseActivity {
     private Carro carro;
     private CarroDao carroDao;
 
-    private  String txtCor, idCor;
+    private  String txtCor, idCor, placa;
+
+    private Boolean edicao = false;
 
     @Override
     protected int layoutResource() {
@@ -48,6 +51,21 @@ public class ActCadastro extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         act = ActCadastro.this;
+
+        Intent intent = super.getIntent();
+        placa = (String) intent.getSerializableExtra("placa");
+
+        if(placa.isEmpty() || placa!="") {
+
+            carroDao = new CarroDao();
+            carro = carroDao.getCarroPorPlaca(placa);
+
+            setConteudo(carro);
+
+            setaDisable();
+
+            edicao = true;
+        }
 
         SystemUtils.hideKeyboardSingle(act);
 
@@ -86,6 +104,15 @@ public class ActCadastro extends BaseActivity {
 
     }
 
+    public void setConteudo(Carro dados) {
+
+        sp_cor.setSelection(Integer.parseInt(dados.getCor()), true);
+        tiMarca.getEditText().setText(dados.getMarca());
+        tiModelo.getEditText().setText(dados.getModelo());
+        tiPlaca.getEditText().setText(dados.getPlaca());
+        tiAno.getEditText().setText(dados.getAno());
+    }
+
    private void setalistiner() {
 
        sp_cor.setOnItemSelectedListener(
@@ -104,8 +131,11 @@ public class ActCadastro extends BaseActivity {
        tv_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                carroCadastra();
+                if(edicao) {
+                    carroAltera();
+                } else {
+                    carroCadastra();
+                }
             }
         });
 
@@ -113,6 +143,47 @@ public class ActCadastro extends BaseActivity {
        mPlaca.requestFocus();
        mPlaca.addTextChangedListener(plateWatcher);
     }
+
+
+    private void carroAltera() {
+
+        if (valida_campos()) {
+            String ti_marca = tiMarca.getEditText().getText().toString();
+            String ti_modelo = tiModelo.getEditText().getText().toString();
+            String ti_placa = tiPlaca.getEditText().getText().toString();
+            String ti_ano = tiAno.getEditText().getText().toString();
+
+            carro = new Carro();
+
+            carro.setModelo(ti_modelo);
+            carro.setMarca(ti_marca);
+            carro.setPlaca(ti_placa);
+            carro.setAno(ti_ano);
+            carro.setCor(idCor);
+
+            gravaCarroDB(carro);
+
+            MaterialDialog dialog = new MaterialDialog.Builder(ActCadastro.this)
+                    .onPositive(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(MaterialDialog dialog, DialogAction which) {
+                            finish();
+                        }
+                    })
+                    .onNegative(new MaterialDialog.SingleButtonCallback() {
+                        @Override
+                        public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                            // Nada fazer.
+                        }
+                    })
+                    .title("Alteração")
+                    .content("Alteração efetuada com sucesso!")
+                    .positiveText("Ok")
+                    .show();
+
+        }
+    }
+
 
 
     private void carroCadastra() {
@@ -211,6 +282,28 @@ public class ActCadastro extends BaseActivity {
 
         // insert carro into database
         carroDao.adicionaCarro(carro);
+    }
+
+    public void setaDisable() {
+
+        sp_cor.setEnabled(false);
+
+        tiModelo.getEditText().setEnabled(false);
+        tiMarca.getEditText().setEnabled(false);
+        tiPlaca.getEditText().setEnabled(false);
+        tiAno.getEditText().setEnabled(false);
+
+    }
+
+    public void setaEnable() {
+
+        sp_cor.setEnabled(true);
+
+        tiModelo.getEditText().setEnabled(true);
+        tiMarca.getEditText().setEnabled(true);
+        tiPlaca.getEditText().setEnabled(true);
+        tiAno.getEditText().setEnabled(true);
+
     }
 
 }

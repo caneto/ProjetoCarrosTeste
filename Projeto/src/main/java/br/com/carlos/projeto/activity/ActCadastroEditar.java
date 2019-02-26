@@ -177,7 +177,6 @@ public class ActCadastroEditar extends BaseActivity {
         tiAno.getEditText().setText(dados.getAno());
     }
 
-
     private void carroCadastra() {
 
         if (valida_campos()) {
